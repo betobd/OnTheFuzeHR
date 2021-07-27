@@ -6,24 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/userInfo.css">
 </head>
 <body>
     <header>
         <div class="logo_OTF">
-            <img src="/images/onthefuze_logo.png" alt="Logo On The Fuse">
+            <img src="./images/onthefuze_logo.png" alt="Logo On The Fuse">
         </div>
 
         <nav >
             <ul class="list-header">
                 <li>
-                    <a href="">Algo</a>
+                    <a href="https://www.onthefuze.com.au/">All Documents</a>
                 </li>
 
                 <li>
-                    <a href="">Algo Mas</a>
+                    <a href="">All Employees</a>
                 </li>
                 <li>
-                    <a href="">Otra cosa</a>
+                    <a href="https://www.onthefuze.com.au/">Main Page</a>
                 </li>
             </ul>
         </nav>
@@ -51,43 +52,180 @@
 
                 <section>
                     <div>
-                        <p>OTF ID</p>
-                        <input type="text">
+                        <p>ID</p>
+                        <input id="cedula" type="text">
                     </div>
                 </section>
 
             </div>
 
-            <div class="search-section-panel">
+            
 
-                <section>
-                    <div>
-                        <p>Business Unit</p>
-                        <input type="text">
+            <div>
+                <article class="cssui-usercard">
+                    <div class="cssui-usercard__body">
+                      <header class="cssui-usercard__header">
+                        <img src="https://www.cleverfiles.com/howto/wp-content/uploads/2018/03/minion.jpg" class="cssui-usercard__avatar" alt="Avatar">
+                        <div class="cssui-usercard__header-info">
+                          <h3 id='empl_name' class="cssui-usercard__name">NOMBRE</h3>
+                           
+                          <span id='empl_lastname' class="cssui-usercard__name-label">APELLIDO</span>
+                          
+                          <span id='empl_post'class="cssui-usercard__post">CARGO</span>
+                        </div>
+                      </header>
+                      <div class="cssui-usercard__content">
+                        <div class="cssui-slider">
+                
+                          <!-- the control elements of slider -->
+                
+                          <input id="slide1" type="radio" class="cssui-slider__switch cssui-usercard__switch" name="slider-controls" checked autofocus>
+                          <label for="slide1" class="cssui-slider__control cssui-usercard__control"></label>
+                          <input id="slide2" type="radio" class="cssui-slider__switch cssui-usercard__switch" name="slider-controls">
+                          <label for="slide2" class="cssui-slider__control cssui-usercard__control"></label>
+                          <input id="slide3" type="radio" class="cssui-slider__switch cssui-usercard__switch" name="slider-controls">
+                          <label for="slide3" class="cssui-slider__control cssui-usercard__control"></label>
+                          
+                
+                          <div class="cssui-slider__slides">
+                
+                            <!-- first slide -->
+                
+                            <div class="cssui-slider__slide">
+                              <h4 class="cssui-usercard__title">Informacion</h4>
+                              <div class="cssui-usercard__stats">
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-earth"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Ciudad</span>
+                                    <span id='empl_city' class="cssui-stats__value"></span>
+                                  </div>
+                                </div>
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-location"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Cedula</span>
+                                    <span id='empl_id' class="cssui-stats__value"></span>
+                                  </div>
+                                </div>
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-calendar"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Teléfono</span>
+                                    <span id='empl_phone' class="cssui-stats__value"></span>
+                                  </div>
+                                </div>
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-man-woman"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Correo Empresa</span>
+                                    <span id='empl_email_e' class="cssui-stats__value"></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                
+                            <!-- second slide -->
+                
+                            <div class="cssui-slider__slide">
+                              <h4 class="cssui-usercard__title">My Skills</h4>
+                              <div class="cssui-usercard__stats">
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-html"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Correo Pers.</span>
+                                    <span id='empl_email_p' class="cssui-stats__value"></span>
+                                  </div>
+                                </div>
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-vue"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Vegetariano</span>
+                                    <span id='empl_veg'class="cssui-stats__value"></span>
+                                  </div>
+                                </div>
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-angular"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Talla Camisa</span>
+                                    <span id='empl_size'class="cssui-stats__value"></span>
+                                  </div>
+                                </div>
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-js"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Dirección</span>
+                                    <span id='empl_address'class="cssui-stats__value"></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                
+                            <!-- third slide -->
+                
+                            <div class="cssui-slider__slide">
+                              <h4 class="cssui-usercard__title">My Contacts</h4>
+                              <div class="cssui-usercard__stats">
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-email"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Tipo Doc</span>
+                                    <a href="#0" class="cssui-stats__value"></a>
+                                  </div>
+                                </div>
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-phone"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Phone</span>
+                                    <a href="tel:79000000000" class="cssui-stats__value">7-900-000-00-00</a>
+                                  </div>
+                                </div>
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-whatsapp"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Tipo Doc</span>
+                                    <span id='empl_doc_type' class="cssui-stats__value">+7 000 000-00-00</span>
+                                  </div>
+                                </div>
+                                <div class="cssui-stats cssui-usercard__stats-item">
+                                  <i class="cssui-icon icon-skype"></i>
+                                  <div class="cssui-stats__info cssui-usercard__stats-info">
+                                    <span class="cssui-stats__name cssui-usercard__stats-name">Skype</span>
+                                    <span class="cssui-stats__value">username</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                
+                
+                            
+                
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </section>
-
-                <section>
-                    <div>
-                        <p>City</p>
-                        <input type="text">
-                    </div>
-                </section>
-
-                <section>
-                    <div>
-                        <p>Country</p>
-                        <input type="text">
-                    </div>
-                </section>
-
+                    <footer class="cssui-usercard__footer">
+                      <a href="#0" class="cssui-social cssui-usercard__social">
+                        <i class="cssui-icon icon-twitter"></i>
+                        <span class="cssui-social__name">twitter</span>
+                      </a>
+                      <a href="#0" class="cssui-social cssui-usercard__social">
+                        <i class="cssui-icon icon-linkedin"></i>
+                        <span class="cssui-social__name">linkedin</span>
+                      </a>
+                      <a href="#0" class="cssui-social cssui-usercard__social">
+                        <i class="cssui-icon icon-codepen"></i>
+                        <span class="cssui-social__name">codepen</span>
+                      </a>
+                    </footer>
+                  </article>
             </div>
 
         </section>
 
         <section class="search-section-buttons">
             <button type="button">Clear All</button>
-            <button type="button">Submit</button>
+            <button id='btn_consulta' type="button">Submit</button>
 
         </section>
 
@@ -98,14 +236,43 @@
     </footer>
 
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.7.1/firebase-app.js"></script>
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!--<script src="/__/firebase/8.7.1/firebase-app.js"></script>-->
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
 <!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+<!--<script src="/__/firebase/init.js"></script>-->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAEHA-9C4dq-krVUDpF2gNfnp1AujYC2uI",
+    authDomain: "onthefuzehr.firebaseapp.com",
+    databaseURL: "https://onthefuzehr-default-rtdb.firebaseio.com",
+    projectId: "onthefuzehr",
+    storageBucket: "onthefuzehr.appspot.com",
+    messagingSenderId: "333309219",
+    appId: "1:333309219:web:da63eb25d9436902985896",
+    measurementId: "G-FZPGEKD1EH"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  //firebase.analytics();
+</script>
+
+<script src="./index.js"></script>
 
 </body>
 </html>

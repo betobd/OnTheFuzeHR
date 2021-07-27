@@ -12,7 +12,7 @@ header{
     width: 100%;
     height: auto;
     
-    background-color: rgba(241, 174, 120, 0.904);
+    background-image: linear-gradient(to bottom, #f0e6e0, #e9920f);
     display: flex;
 }
 
@@ -61,7 +61,7 @@ header nav .list-header a{
 main{
     width: 100%;
     height: 80vh;
-    background-color: rgb(136, 133, 133);
+    background-color: rgb(245, 244, 244);
     display: flex;
     flex-wrap: wrap;
 }
@@ -100,7 +100,7 @@ main .search-section-panel{
     border-radius: 10px;
     border: 1px black;
     padding: 8px;
-    background-color: rgb(138, 136, 136);
+    background-image: linear-gradient(to bottom, #c96827, #e9920f);
     justify-content: center;
     
 }
@@ -133,5 +133,5 @@ main button{
 footer{
     width: 100%;
     height: 10vh;
-    background-color: rgba(241, 174, 120, 0.904);
+    background-color: rgba(250, 240, 232, 0.959);
 }
