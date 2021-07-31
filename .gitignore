@@ -67,4 +67,4 @@ node_modules/
 
 # Firebase Config
 
-firebaseConfig.js
+js/firebaseConfig.js
