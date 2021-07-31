@@ -78,6 +78,8 @@ main .search-section-buttons{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
 }
 
@@ -92,10 +94,10 @@ main .search-section{
 main .search-section-panel{
     display: flex;
     flex-wrap: wrap;
-    width: 350px;
+    width: 200px;
     height: 300px;
-    min-width: 250px;
-    margin: 20px;
+    
+    margin: 90px;
     box-shadow: 5px 5px 5px rgb(29, 28, 28);
     border-radius: 10px;
     border: 1px black;
@@ -104,6 +106,7 @@ main .search-section-panel{
     justify-content: center;
     
 }
+
 
 main p{
     color: white;
@@ -115,16 +118,17 @@ main p{
 }
 
 main input{
-    height: 35px;
+    height: 30px;
+    width: 150px;
     border-radius: 10px;
 }
 
 main button{
-    width: 130px;
-    height: 40px;
-    margin: 15px;
+    width: 70px;
+    height: 30px;
+    margin: 10px;
     border-radius: 5px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
     

@@ -29,6 +29,30 @@
   }
 }
 
+.search-result-panel{
+  display: flex;
+  flex-wrap: wrap;
+  
+  min-width: 360px;
+  box-shadow: 5px 5px 5px rgb(29, 28, 28);
+  border-radius: 10px;
+  border: 1px black;
+  padding: 8px;
+  background-image: linear-gradient(to bottom, #c96827, #e9920f);
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
+
+.btnAddDoc_section{
+  justify-content:center;
+  text-align: center;
+  margin-top: 15px;
+   
+}
+
+
 .cssui-usercard__body{
   padding-bottom: 2rem;
   flex-grow: 2;
@@ -106,7 +130,7 @@
 
 .cssui-usercard__stats-item{
   width: 48%;
-  margin-top: 3rem;
+  margin-top: 6rem;
 }
 
 .cssui-usercard__stats-item:first-child,
@@ -123,12 +147,6 @@
   font-size: 1.6rem;
 }
 
-.cssui-usercard__footer{
-  padding: 1.5rem 4%;
-  text-align: center;
-  background-color: #c96827;
-  color: #fff;  
-}
 
 .cssui-icon{
   width: 2em;
@@ -137,27 +155,6 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: contain;
-}
-
-.cssui-social{
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  overflow: hidden;
-}
-
-.cssui-social__name{
-  position: absolute;
-  left: -9999px;
-}
-
-.cssui-usercard__social{
-  margin-right: 1.6rem;
-  font-size: .8rem;
-}
-
-.cssui-usercard__social:last-child{
-  margin-right: 0;
 }
 
 .cssui-slider{
@@ -238,6 +235,10 @@
   transform: translateZ(0);
 }
 
+.cssui-usercard__content{
+  background: linear-gradient(to bottom, #e07833, #e9920f);
+}
+
 .cssui-usercard__control:before{
   content: "";
   display: block;
@@ -261,6 +262,18 @@
   left: 60%;
 }
 
+.cssui-docs{
+  font-size: 1.4rem;
+  display: flex;
+  text-align: center;
+  
+ }
+
+
+ .upload_file_section{
+   padding-left: 10px;
+
+ }
 /*
 * demo styles
 */
@@ -288,12 +301,9 @@
 
 body{
   font-family: "Roboto", "Arial", sans-serif;
-  font-size: 1.6rem;
-  color: #fff;
-  margin: 0;
-  min-height: 100vh;
+  font-size: 1.6rem;   
   overflow-x: hidden;
-  background-image: linear-gradient(29deg, #512DA8 50%, #673AB7 50%);
+  
 }
 
 a{
@@ -301,90 +311,44 @@ a{
   text-decoration: none;
 }
 
-.footer{
-  text-align: center;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  position: relative;
-  z-index: 5;
+
+
+.list-docs{
+  
+  display: inline;  
+  list-style: none;
+  text-align: left;
+  margin-bottom: 10px;  
+  
 }
 
-@media screen and (max-width: 640px){
+.list-docs a{
+  margin-left: 15px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(248, 246, 246);
+  font-size: 1.6rem;
+  text-align: left;
+  
+}
 
-  .footer{
-    font-size: 1.4rem;
+.list-docs a:hover{
+  font-weight: bold;
+  
   }
-}
 
-.footer__container{
-  display: flex;
-  justify-content: center;
-}
+  .Category_List{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
-.melnik909{
-  margin-left: 2rem;
-}
-
-/* loading icons */
-/*
-.icon-earth{
-  background-image: url("https://stas-melnikov.ru/demo-icons/capital-letter-colored.svg");
-}
-
-.icon-location{
-  background-image: url("https://stas-melnikov.ru/demo-icons/location-colored.svg");
-}
-
-.icon-calendar{
-  background-image: url("https://stas-melnikov.ru/demo-icons/calendar-colored.svg");
-}
-
-.icon-man-woman{
-  background-image: url("https://stas-melnikov.ru/demo-icons/family-colored.svg");
-}
-
-.icon-twitter{
-  background-image: url("https://stas-melnikov.ru/demo-icons/twitter-white.svg");
-}
-
-.icon-linkedin{
-  background-image: url("https://stas-melnikov.ru/demo-icons/linkedin-white.svg");
-}
-
-.icon-codepen{
-  background-image: url("https://stas-melnikov.ru/demo-icons/codepen-white.svg");
-}
-
-.icon-html{
-  background-image: url("https://stas-melnikov.ru/demo-icons/html5-colored.svg");
-}
-
-.icon-angular{
-  background-image: url("https://stas-melnikov.ru/demo-icons/angular-colored.svg");
-}
-
-.icon-vue{
-  background-image: url("https://stas-melnikov.ru/demo-icons/vue-colored.svg");
-}
-
-.icon-js{
-  background-image: url("https://stas-melnikov.ru/demo-icons/server-js-colored.svg");
-}
-
-.icon-email{
-  background-image: url("https://stas-melnikov.ru/demo-icons/mail-colored.svg");
-}
-
-.icon-phone{
-  background-image: url("https://stas-melnikov.ru/demo-icons/iphone-colored.svg");
-}
-
-.icon-whatsapp{
-  background-image: url("https://stas-melnikov.ru/demo-icons/whatsapp-colored.svg");
-}
-
-.icon-skype{
-  background-image: url("https://stas-melnikov.ru/demo-icons/skype-colored.svg");
-}
-
-*/
+  .btn_button{
+    width: 110px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
