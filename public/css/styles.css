@@ -61,7 +61,7 @@ header nav .list-header a{
 main{
     width: 100%;
     height: 80vh;
-    background-color: rgb(245, 244, 244);
+    background-color: rgb(12, 12, 12);
     display: flex;
     flex-wrap: wrap;
 }
@@ -98,7 +98,7 @@ main .search-section-panel{
     height: 300px;
     
     margin: 90px;
-    box-shadow: 5px 5px 5px rgb(29, 28, 28);
+    box-shadow: 5px 5px 5px rgb(228, 221, 221);
     border-radius: 10px;
     border: 1px black;
     padding: 8px;
@@ -137,5 +137,5 @@ main button{
 footer{
     width: 100%;
     height: 10vh;
-    background-color: rgba(250, 240, 232, 0.959);
+    background-image: linear-gradient(to bottom, #050505, #e9920f);
 }

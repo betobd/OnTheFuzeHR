@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/userInfo.css">
+    <link rel="stylesheet" href="./css/docsView.css">
 </head>
 <body>
     <header>
@@ -66,11 +67,10 @@
             </div>
 
             
+            <div class="search-result-panel">
 
-            <div>
-                <div class="search-result-panel">
-                    <div class="cssui-usercard__body">
-                      <header class="cssui-usercard__header">
+                <div class="cssui-usercard__body">
+                  <header class="cssui-usercard__header">
                         <img src="https://image.flaticon.com/icons/png/512/121/121693.png" class="cssui-usercard__avatar" alt="Avatar">
                         <div class="cssui-usercard__header-info">
                           <h3 id='empl_name' class="cssui-usercard__name">NOMBRE</h3>
@@ -79,9 +79,11 @@
                           
                           <span id='empl_post'class="cssui-usercard__post">CARGO</span>
                         </div>
-                      </header>
-                      <div class="cssui-usercard__content">
-                        <div class="cssui-slider">
+                  </header>
+
+                  <div class="cssui-usercard__content">
+
+                      <div class="cssui-slider">
                 
                           <!-- the control elements of slider -->
                 
@@ -176,73 +178,70 @@
 
                                   <ul  id='ocultar-y-mostrar1' class="list-docs">
 
-                                    <li>
-                                        <a href="">Hoja de vida</a>
+                                    <li >
+                                        <a onclick="genera_tabla('Hoja de vida')">Hoja de vida </a>
                                     </li>
                     
                                     <li>
-                                        <a href="">Exámenes médicos</a>
+                                        <a onclick="genera_tabla('Exámenes médicos')">Exámenes médicos</a>
                                     </li>
 
                                     <li>
-                                        <a href="">SST</a>
+                                        <a onclick="genera_tabla('SST')">SST</a>
                                     </li>
 
                                     <li>
-                                      <a href="">Incapacidades</a>
+                                      <a onclick="genera_tabla('Incapacidades')">Incapacidades</a>
                                     </li>
                   
                                     <li>
-                                        <a href="">Licencias</a>
+                                        <a onclick="genera_tabla('Licencias')">Licencias</a>
                                     </li>
 
                                     <li>
-                                        <a href="">Vacaciones</a>
+                                        <a onclick="genera_tabla('Vacaciones')">Vacaciones</a>
                                     </li>
 
                                   </ul>
-                                
-                                
+                                                                
                                   <ul id='ocultar-y-mostrar2' class="list-docs">
 
                                     <li>
-                                        <a href="">Recomendaciones</a>
+                                        <a onclick="genera_tabla('Recomendaciones')">Recomendaciones</a>
                                     </li>
                     
                                     <li>
-                                        <a href="">ARL</a>
+                                        <a onclick="genera_tabla('ARL')">ARL</a>
                                     </li>
 
                                     <li>
-                                        <a href="">EPS</a>
+                                        <a onclick="genera_tabla()">EPS</a>
                                     </li>
 
                                     <li>
-                                      <a href="">Caja de conpensación</a>
+                                      <a onclick="genera_tabla('Caja de conpensación')">Caja de conpensación</a>
                                     </li>
                   
                                     <li>
-                                        <a href="">Certificados</a>
+                                        <a onclick="genera_tabla('Certificados')">Certificados</a>
                                     </li>
 
                                     <li>
-                                        <a href="">Otros</a>
+                                        <a onclick="genera_tabla('Otros')">Otros</a>
                                     </li>
 
-                                  </ul>
-                                
+                                  </ul>                                
                                 
                               </div>
 
                               <section  class="btnAddDoc_section">
-                                <button class="btn_button" id="btnAddDoc" type="button" onclick="btn_add()">Agregar Doc.</button>
+                                <button class="btn_button" id="btnAddDoc" type="button" onclick="hide_category_list()">Agregar Doc.</button>
                               </section>
-
                               
+                              <div class="upload_file_section" id="upload_section">    
 
-                              <div class="upload_file_section" id="upload_section">                                
                                 <h4 id="categ_list">Categoría:</h4>
-                                <select name="OS" id="categ_list2" class="Category_List">
+                                <select id="doc_selected" name="OS" id="categ_list2" class="Category_List" onchange="selectedCategory()">
                                   <option value="1">ARL</option> 
                                   <option value="2">Hoja de vida</option> 
                                   <option value="3">Exámenes médicos</option>
@@ -255,27 +254,51 @@
                                   <option value="10">Caja de conpensación</option>
                                   <option value="11">Certificados</option>
                                   <option value="12">Otros</option>
-                               </select>
-                               <textarea id="text_description" name="textarea" rows="8" cols="40" placeholder="Descripción del archivo" oninput="myFunction2()"></textarea>
-                               <input id="select_file_button" type="file">
+                                  <option value="13" selected="selected">Seleccione categoría</option>
+                                </select>
+                                <div class="textarea_backicon">
+                                  <textarea id="text_description" name="textarea" rows="7" cols="40" placeholder="Descripción del archivo" oninput="myFunction2()"></textarea>
+                                  <span class="icon_left_arrow" onclick="show_category_list()"></span>
+                                </div>
+                                
+                                 <input id="select_file_button" type="file">
                                
                               </div>
-
-                              
-                                       
-                
-                
+                            </div>
+                                              
                           </div>
-                        </div>
+
                       </div>
-                    </div>
+
+                  </div>
+
+                </div>
                    
-                  </article>
             </div>
+
+            <div class="view_documents_section">              
+
+              <section class="show_documents">
+                <table id="docs_table" class="tftable" border="2">
+                  <tr><th>USUARIO</th><th>DESCRIPCIÓN</th><th>CATEGORÍA</th><th>LINK DESCARGA</th></tr>
+                  </table>
+                  
+                  
+
+              </section>
+
+              <section >
+                <button type="button">Clear All</button>
+                <button id='btn_consulta' type="button">Submit</button>
+    
+            </section>
+
+          </div>
+                       
 
         </section>
 
-       
+        
 
     </main>
 
@@ -284,31 +307,29 @@
     </footer>
 
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<!--<script src="/__/firebase/8.7.1/firebase-app.js"></script>-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!--<script src="/__/firebase/8.7.1/firebase-app.js"></script>-->
+
+    <!-- Initialize Firebase -->
+    <!--<script src="/__/firebase/init.js"></script>-->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-storage.js"></script>
 
 
+    <script src="./js/firebaseConfig.js">
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional  
+    </script>
 
-<!-- Initialize Firebase -->
-<!--<script src="/__/firebase/init.js"></script>-->
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-storage.js"></script>
-
-
-<script src="./js/firebaseConfig.js">
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional  
-</script>
-
-<script src="./js/store.js"></script>
-<script src="./js/index.js"></script>
+    <script src="./js/store.js"></script>
+    <script src="./js/index.js"></script>
 
 </body>
 </html>

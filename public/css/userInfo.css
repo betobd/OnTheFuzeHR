@@ -34,7 +34,7 @@
   flex-wrap: wrap;
   
   min-width: 360px;
-  box-shadow: 5px 5px 5px rgb(29, 28, 28);
+  box-shadow: 5px 5px 5px rgb(235, 232, 232);
   border-radius: 10px;
   border: 1px black;
   padding: 8px;
@@ -264,7 +264,7 @@
 
 .cssui-docs{
   font-size: 1.4rem;
-  display: flex;
+  display: inline-flex;
   text-align: center;
   
  }
@@ -351,4 +351,18 @@ a{
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
+  }
+  
+  .textarea_backicon{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .icon_left_arrow{
+    width: 31px;
+    height: 25px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    background-image: url("../images/flecha_izq.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
