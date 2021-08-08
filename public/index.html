@@ -25,7 +25,7 @@
                     <a href="">All Employees</a>
                 </li>
                 <li>
-                    <a href="https://www.onthefuze.com.au/">Main Page</a>
+                    <a href="/public/createEmployee.html">Crear Registro</a>
                 </li>
             </ul>
         </nav>
@@ -215,7 +215,7 @@
                                     </li>
 
                                     <li>
-                                        <a onclick="genera_tabla()">EPS</a>
+                                        <a onclick="genera_tabla('EPS')">EPS</a>
                                     </li>
 
                                     <li>
@@ -276,24 +276,23 @@
                    
             </div>
 
-            <div class="view_documents_section">              
+            <div id="view_doc_section" class="view_documents_section">              
 
               <section class="show_documents">
+
                 <table id="docs_table" class="tftable" border="2">
-                  <tr><th>USUARIO</th><th>DESCRIPCIÓN</th><th>CATEGORÍA</th><th>LINK DESCARGA</th></tr>
-                  </table>
-                  
-                  
+                  <tr><th>ARCHIVO</th><th>DESCRIPCIÓN</th><th>LINK DESCARGA</th><th>Borrar</th></tr>
+                </table> 
+                
+                
 
               </section>
 
-              <section >
-                <button type="button">Clear All</button>
-                <button id='btn_consulta' type="button">Submit</button>
-    
-            </section>
+              <section  class="btnDelDoc_section">
+                <button class="btn_button" id="btnDelDoc" type="button" onclick="del()">Eliminar Doc.</button>
+              </section>
 
-          </div>
+            </div>
                        
 
         </section>

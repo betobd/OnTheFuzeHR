@@ -9,9 +9,11 @@ const filterDocUser = 'id1';
 //const filterDocCategory= 'ARL';
 //const selected_category = document.getElementById('doc_selected');
 
-const  getUser = () => db.collection(dbUsers).where('numero_doc','==',cedula.value).get();
+const getUser = () => db.collection(dbUsers).where('numero_doc','==',cedula.value).get();
 
 const getDoc = (categoryFilter)=> db.collection(dbDocs).where('employee_id','==',user_id).where('categoria','==',categoryFilter).get();
+
+const delDbDoc= (dcDoc) => db.collection("documentos").doc(dcDoc).delete()
 
 
 
@@ -26,6 +28,7 @@ async function set(file,user_id,doc_name){
     
     await fileRef.put(file)
     const fileURL = await  fileRef.getDownloadURL()
+    const fileData = await fileRef.getMetadata()
 
     var Docs = db.collection('documentos').doc();
 
@@ -35,11 +38,44 @@ async function set(file,user_id,doc_name){
     descripcion: doc_descrp.value,
     employee_id: user_id,
     nombre_doc: filename,
+    doc_path: fileData.fullPath
 
 }, { merge: true });
 
     console.log(fileURL)
+    //console.log(doc_path)
 } 
+
+
+
+
+async function delDoc(doc_path,id){
+
+const storageRef = firebase.storage().ref()   
+    // Create a reference to the file to delete
+var desertRef = storageRef.child(doc_path);
+
+// Delete the file
+desertRef.delete().then(function() {
+  console.log("Archivo eliminado")
+  console.log(id)
+}).catch(function(error) {
+  // Uh-oh, an error occurred!
+});
+
+
+await delDbDoc(id)
+
+} 
+
+
+async function pressDel(algo){
+
+   console.log('Boton borrar presionado' + algo)
+    } 
+
+
+
 
 
 

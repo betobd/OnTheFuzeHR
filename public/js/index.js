@@ -16,6 +16,7 @@ const select_upload_file= document.getElementById('select_file_button');
 
 const category_docs_section= document.getElementById("category_list_section");
 const upload_file_section = document.getElementById("upload_section");
+const v_sec = document.getElementById("view_doc_section");
 const doc_descrp        = document.getElementById("text_description");
 const btn_Add_Doc       = document.getElementById("btnAddDoc");
 
@@ -30,6 +31,7 @@ var texto = "texto con espacios/yslach"
 
 upload_file_section.style.display = "none";
 select_upload_file.style.display="none";
+v_sec.style.display="none";
 
 btn_search.addEventListener('click', async(e) =>{
       
@@ -130,76 +132,148 @@ function hide_category_list(){
 
 async function genera_tabla(categoryFilter){
 
-  var body = document.getElementsByClassName("show_documents")[0];
-    // Crea un elemento <table> y un elemento <tbody>
-  var tabla   = document.getElementById("docs_table");
-  var tblBody = document.createElement("tbody");
-
   const docs = await getDoc(categoryFilter);
 
-    docs.forEach(arc =>{
-        arcdata=arc.data();
-        //console.log('El link es:'+arcdata.doc_lik);
-        var fila = document.createElement("tr");
+  if(docs.size==0){
+   
+    v_sec.style.display="none";
+    alert('No hay documentos');
+
+  }else{
+
+    /*****Se muestra la seccion de vista de documentos y se declara la sección para mostrarlos ***********/
+
+    v_sec.style.display="block";
+    var body = document.getElementsByClassName("show_documents")[0];
+
+    /*****************************************************************************************************/
+
+    // Crea un elemento <table> y un elemento <tbody>
+        var tabla   = document.getElementById("docs_table");
+        var tblBody = document.createElement("tbody");
+
+    /*******************************************************/
+
+    /********Se resetea la vista de la sección y se crea el encabezado con titulos de la tabla */
+
+        tabla.innerHTML="";
+        var encabezado = document.createElement("tr");
 
         for (var j = 0; j < 4; j++) {
-            // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-            // texto sea el contenido de <td>, ubica el elemento <td> al final
-            // de la fila de la tabla
-            var celda = document.createElement("td");
-            //var textoCelda = document.createTextNode(arcdata[Object.keys(arcdata)[j]]);
+          
+          var titulos = document.createElement("th");
+          switch (j) {
+                    
+            case 0:
+              var textoCelda = document.createTextNode('ARCHIVO');
+              break;
 
-            switch (j) {
-              case 0:
-                var textoCelda = document.createTextNode(arcdata.employee_id);
-                break;
-              case 1:
-                var textoCelda = document.createTextNode(arcdata.descripcion);
-                break;
+            case 1:
+              var textoCelda = document.createTextNode('DESCRIPCIÓN');
+              break;
 
-              case 2:
-                var textoCelda = document.createTextNode(arcdata.categoria);
-                break;
-              case 3:
-                var textoCelda = document.createTextNode(arcdata.doc_lik);
-                console.log(typeof(textoCelda.data));
-                var textoDescargar = document.createTextNode("Descargar");
-                var link = document.createElement("a");
-                link.href=textoCelda.data;
-                link.setAttribute('download',textoCelda.data);
-                link.setAttribute('target','_blank');
-                link.text=textoDescargar.data
-                break;
+            case 2:
               
-            }
+              var textoCelda = document.createTextNode("LINK DESCARGA");
+              break;
 
-            if(j==3){
-              //celda.appendChild(textoDescargar);
-              celda.appendChild(link);
-              fila.appendChild(celda);
-            }else{
-              celda.appendChild(textoCelda);
-              fila.appendChild(celda);
-            }
+            case 3:
+              var textoCelda = document.createTextNode("Borrar");
+              break;
             
-
           }
 
-           
-          // agrega la fila al final de la tabla (al final del elemento tblbody)
-          tblBody.appendChild(fila);
+          titulos.appendChild(textoCelda);
+          encabezado.appendChild(titulos);
+        } 
+        
+        tblBody.appendChild(encabezado);
 
-          
-          //console.log("DATA:"+arcdata[Object.keys(arcdata)[1]])
-    });
+    /*****************************************************************************************************/
+
+
+    /*********Se leen los archivos filtrados por categoria y se pintan en la tabla *********************/
+
+
+
+      docs.forEach(arc =>{
+          arcdata=arc.data();
+          //console.log('El HyperLink es:'+arcdata.doc_lik);
+          var fila = document.createElement("tr");
+
+          for (var j = 0; j < 4; j++) {
+              // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+              // texto sea el contenido de <td>, ubica el elemento <td> al final
+              // de la fila de la tabla
+              var celda = document.createElement("td");
+              //var textoCelda = document.createTextNode(arcdata[Object.keys(arcdata)[j]]);
+
+              switch (j) {
+                
+                case 0:
+                  var textoCelda = document.createTextNode(arcdata.doc_path);
+                  break;
+
+                case 1:
+                  var textoCelda = document.createTextNode(arcdata.descripcion);
+                  break;
+
+                case 2:
+                  
+                  var textoDescargar = document.createTextNode("Descargar");
+                  var HyperLink = document.createElement("a");
+                  var HyperLink_d = arcdata.doc_lik;
+                  
+                  HyperLink.setAttribute('href',HyperLink_d.data);
+                  HyperLink.setAttribute('download',HyperLink_d.data);
+                  HyperLink.setAttribute('target','_blank');
+                  
+                  break;
+
+                case 3:
+                  var btnDel = document.createElement("button");
+                  var path = document.createTextNode(arcdata.doc_path);
+                  
+                  btnDel.onclick = function() { 
+                    delDoc(path.data,arc.id);
+                };
+                  btnDel.innerText='Borrar';
+                  break;
+                
+              }
+
+              if(j==2){
+                celda.appendChild(textoDescargar);
+                celda.appendChild(HyperLink);
+                fila.appendChild(celda);
+              }else if(j==3){
+                celda.appendChild(btnDel);
+                fila.appendChild(celda);
+              }else{
+                celda.appendChild(textoCelda);
+                fila.appendChild(celda);
+              }
+              
+
+            }
+
+            
+            // agrega la fila al final de la tabla (al final del elemento tblbody)
+            tblBody.appendChild(fila);
+            
+      });
+
+
+    // posiciona el <tbody> debajo del elemento <table>
+    tabla.appendChild(tblBody);
+    // appends <table> into <body>
+    body.appendChild(tabla);
+    // modifica el atributo "border" de la tabla y lo fija a "2";
+    tabla.setAttribute("border", "2");
+
+  }
 
   
-  // posiciona el <tbody> debajo del elemento <table>
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tabla);
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");
 
 
 }
