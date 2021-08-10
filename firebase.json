@@ -1,19 +1,29 @@
 {
   "hosting": {
+    "redirects":[
+      {
+        "source": "/createEmployee",
+        "destination": "createEmployee.html",
+        "type": 301
+      },
+      {
+        "source": "/inicio",
+        "destination": "index.html",
+        "type": 302
+      }
+    ],
     "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   },
   "storage": {
     "rules": "storage.rules"
-  }
+  },
+  "rewrites": [ {
+    "source": "**",
+    "destination": "/index.html"
+  } ]
 }

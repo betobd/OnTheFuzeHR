@@ -1,30 +1,22 @@
-//var moment = require('../../node_modules/moment');  
-
 const db= firebase.firestore();
 const cedula = document.getElementById('cedula');
-//const selected_category = document.getElementById('doc_selected');
 const dbUsers = 'trabajadores';
 const dbDocs = 'documentos';
-const filterDocUser = 'id1';
-//const filterDocCategory= 'ARL';
-//const selected_category = document.getElementById('doc_selected');
 
 const getUser = () => db.collection(dbUsers).where('numero_doc','==',cedula.value).get();
 
 const getDoc = (categoryFilter)=> db.collection(dbDocs).where('employee_id','==',user_id).where('categoria','==',categoryFilter).get();
 
-const delDbDoc= (dcDoc) => db.collection("documentos").doc(dcDoc).delete()
+const delDbDoc= (dcDoc) => db.collection("documentos").doc(dcDoc).delete();
 
+const createRegister = (value) => db.collection('trabajadores').add(value);
 
 
 async function set(file,user_id,doc_name){
     
-    //var categ_doc = selected_category.options[selected_category.selectedIndex].text;
     const storageRef = firebase.storage().ref()
     const filename = doc_name + '_' + categ_doc + '_' +  (new Date).toLocaleString()+'.pdf';
     const fileRef = storageRef.child(filename.replace(/\s+/g, '').replace(/[/]/g,'-'));
-    
-   
     
     await fileRef.put(file)
     const fileURL = await  fileRef.getDownloadURL()
@@ -45,8 +37,6 @@ async function set(file,user_id,doc_name){
     console.log(fileURL)
     //console.log(doc_path)
 } 
-
-
 
 
 async function delDoc(doc_path,id){
@@ -73,6 +63,12 @@ async function pressDel(algo){
 
    console.log('Boton borrar presionado' + algo)
     } 
+
+
+
+  
+
+
 
 
 
