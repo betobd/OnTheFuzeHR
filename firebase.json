@@ -1,6 +1,15 @@
 {
   "hosting": {
-    "redirects":[
+    
+    "public": "functions/public",
+    
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+
+    "redirects": [
       {
         "source": "/createEmployee",
         "destination": "createEmployee.html",
@@ -8,22 +17,29 @@
       },
       {
         "source": "/inicio",
-        "destination": "index.html",
+        "destination": "mainpage.html",
         "type": 302
+      },
+      {
+        "source": "/editEmployee",
+        "destination": "editEmployee.html",
+        "type": 303
       }
     ],
-    "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+
+    "rewrites": [
+      {
+        "source": "/algo",
+        "function": "app"
+      },
+      {
+        "source": "/edit",
+        "function": "app"
+      }
     ]
   },
   "storage": {
     "rules": "storage.rules"
-  },
-  "rewrites": [ {
-    "source": "**",
-    "destination": "/index.html"
-  } ]
+  }
+  
 }

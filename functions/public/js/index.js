@@ -11,6 +11,7 @@ const employee_vegan    =document.getElementById('empl_veg');
 const employee_phone    =document.getElementById('empl_phone');
 
 
+const cedula = document.getElementById('cedula');
 const btn_search        =document.getElementById('btn_consulta');
 const select_upload_file= document.getElementById('select_file_button');
 
@@ -24,10 +25,11 @@ const btn_Add_Doc       = document.getElementById("btnAddDoc");
 var user_id ="";
 var categ_doc="";
 var user_name="";
+var documentNumber="";
 
-var texto = "texto con espacios/yslach"
-    console.log(texto.replace(/\s+/g, '').replace('/','-'))
-    console.log((new Date).toLocaleString().replace(/\s+/g, '').replace(/[/]/g,'-'));
+
+
+console.log((new Date).toLocaleString().replace(/\s+/g, '').replace(/[/]/g,'-'));
 
 upload_file_section.style.display = "none";
 select_upload_file.style.display="none";
@@ -35,7 +37,7 @@ v_sec.style.display="none";
 
 btn_search.addEventListener('click', async(e) =>{
       
-    const employees = await getUser();
+    const employees = await getUser(cedula.value);
          
    
     let info = {
@@ -55,9 +57,10 @@ btn_search.addEventListener('click', async(e) =>{
         
         
      employees.forEach(doc => {
-        data=doc.data();
+        const data=doc.data();
         console.log(data.nombre);        
         user_id=doc.id;
+        documentNumber = data.numero_doc
         user_name=data.nombre;
         console.log('El ID es:'+ user_id);
         console.log(typeof(data.nombre));
@@ -114,7 +117,7 @@ function show_category_list() {
 
 function myFunction(){
     console.log(categ_doc);
-    console.log(doc_descrp.value);
+    console.log(doc_descrp.value);    
 }
 
 function myFunction2() {
@@ -283,3 +286,9 @@ function selectedCategory(){
     categ_doc = selected_category.options[selected_category.selectedIndex].text;
     console.log(categ_doc);
 }
+
+function getUserID(){
+  return { id: data.numero_doc };
+}
+
+module.exports.getUserID = getUserID;

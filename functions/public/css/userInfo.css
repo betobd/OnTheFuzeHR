@@ -30,9 +30,9 @@
 }
 
 .search-result-panel{
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  
+  flex-wrap: wrap;  
   min-width: 360px;
   box-shadow: 5px 5px 5px rgb(235, 232, 232);
   border-radius: 10px;
@@ -365,4 +365,16 @@ a{
     background-image: url("../images/flecha_izq.png");
     background-size: cover;
     background-repeat: no-repeat;
+  }
+
+  .edit_icon{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background-image: url(../images/edit_icon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
   }

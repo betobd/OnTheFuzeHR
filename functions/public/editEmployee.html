@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Crear Registro</title>
+        <title>Editar--Registro</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/styles.css">
@@ -41,7 +41,7 @@
                 <fieldset>
                     
                     <!-- Form Name -->
-                    <legend><center><h2><b>Crear Registro</b></h2></center></legend><br>
+                    <legend><center><h2><b>Editar Registro</b></h2></center></legend><br>
                     
                     <!-- Text input-->
                     
@@ -50,7 +50,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input  name="nombre" placeholder="Nombre" class="form-control"  type="text" required>
+                                <input  id="edit_fist-name_input" name="nombre" placeholder="Nombre" class="form-control"  type="text" required value=<%= titulo %>>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input name="apellido" placeholder="Apellido" class="form-control"  type="text" required>
+                                <input id="edit_last-name_input" name="apellido" placeholder="Apellido" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-                                <input  name="ciudad" placeholder="Ciuidad" class="form-control"  type="text" required>
+                                <input  id="edit_city_input" name="ciudad" placeholder="Ciuidad" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-knight"></i></span>
-                                <input  name="cargo" placeholder="Cargo" class="form-control"  type="text" required>
+                                <input  id="edit_post_input" name="cargo" placeholder="Cargo" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input name="direccion" placeholder="Dirección" class="form-control"  type="text">
+                                <input id="edit_address_input" name="direccion" placeholder="Dirección" class="form-control"  type="text">
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
-                                <input name="numero_doc" placeholder="Cédula" class="form-control"  type="text" required>
+                                <input id="edit_id_input" name="numero_doc" placeholder="Cédula" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input name="correo_pers" placeholder="Correo Personal" class="form-control"  type="text">
+                                <input id="edit_email-p_input" name="correo_pers" placeholder="Correo Personal" class="form-control"  type="text">
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input name="correo_empr" placeholder="Correo Corporativo" class="form-control"  type="text">
+                                <input id="edit_email-c_input" name="correo_empr" placeholder="Correo Corporativo" class="form-control"  type="text">
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input name="telefono" placeholder="Teléfono" class="form-control" type="text">
+                                <input id="edit_phone_input" name="telefono" placeholder="Teléfono" class="form-control" type="text">
                             </div>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-apple"></i></span>
-                                <input name="vegetariano" placeholder="Vegetariano ?" class="form-control" type="text">
+                                <input id="edit_vegan_input" name="vegetariano" placeholder="Vegetariano ?" class="form-control" type="text">
                             </div>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-text-size"></i></span>
-                                <input name="talla_camisa" placeholder="Talla Camisa" class="form-control" type="text">
+                                <input id="edit_size_input" name="talla_camisa" placeholder="Talla Camisa" class="form-control" type="text">
                             </div>
                         </div>
                     </div>
@@ -179,7 +179,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4"><br>
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCREAR <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGUARDAR <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                         </div>
                     </div>
                     
@@ -211,8 +211,8 @@
       // Your web app's Firebase configuration
       // For Firebase JS SDK v7.20.0 and later, measurementId is optional  
     </script>
-        <script src="./js/createEmployee.js"></script>
         <script src="./js/store.js"></script>
+        <script src="./js/editEmployee.js" type="module"></script>
 
     </body>
 </html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar--Registro</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/styles.css">
+        
+    </head>
+    <body>
+
+        <header>
+            <div class="logo_OTF">
+                <img src="./images/onthefuze_logo.png" alt="Logo On The Fuse">
+            </div>
+    
+            <nav >
+                <ul class="list-header">
+                    <li>
+                        <a href="https://www.onthefuze.com.au/">All Documents</a>
+                    </li>
+    
+                    <li>
+                        <a href="">All Employees</a>
+                    </li>
+                   
+                    <li>
+                        <a href="/inicio">Inicio</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+
+            <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+                
+                <fieldset>
+                    
+                    <!-- Form Name -->
+                    <legend><center><h2><b>Editar Registro</b></h2></center></legend><br>
+                    
+                    <!-- Text input-->
+                    
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Nombre</label>  
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input  id="edit_fist-name_input" name="nombre" placeholder="Nombre" class="form-control"  type="text" required     value= "<%= titulo %>">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Text input-->
+                    
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" >Apellido</label> 
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="edit_last-name_input" name="apellido" placeholder="Apellido" class="form-control"  type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Text input-->
+                    
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Ciudad</label>  
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                                <input  id="edit_city_input" name="ciudad" placeholder="Ciuidad" class="form-control"  type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Text input-->
+                    
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Cargo</label>  
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-knight"></i></span>
+                                <input  id="edit_post_input" name="cargo" placeholder="Cargo" class="form-control"  type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Text input-->
+                    
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" >Dirección</label> 
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="edit_address_input" name="direccion" placeholder="Dirección" class="form-control"  type="text">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Text input-->
+                    
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" >Cédula</label> 
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
+                                <input id="edit_id_input" name="numero_doc" placeholder="Cédula" class="form-control"  type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Correo Personal</label>  
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input id="edit_email-p_input" name="correo_pers" placeholder="Correo Personal" class="form-control"  type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Correo Corporativo</label>  
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input id="edit_email-c_input" name="correo_empr" placeholder="Correo Corporativo" class="form-control"  type="text">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Text input-->
+                        
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Teléfono.</label>  
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                <input id="edit_phone_input" name="telefono" placeholder="Teléfono" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Text input-->
+                        
+                     <div class="form-group">
+                        <label class="col-md-4 control-label">Vegetariano.</label>  
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-apple"></i></span>
+                                <input id="edit_vegan_input" name="vegetariano" placeholder="Vegetariano ?" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                        
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Talla Camisa.</label>  
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-text-size"></i></span>
+                                <input id="edit_size_input" name="talla_camisa" placeholder="Talla Camisa" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4"><br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGUARDAR <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                        </div>
+                    </div>
+                    
+                </fieldset>
+            </form>
+
+            
+        </div><!-- /.container -->
+
+    
+    
+
+    </body>
+</html>
