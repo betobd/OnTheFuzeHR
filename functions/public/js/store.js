@@ -1,40 +1,96 @@
-const db= firebase.firestore();
+const firebase = require('firebase/app');
+const admin = require('firebase-admin');
+var path = require("path");
+//require("firebase/auth");
+//require("firebase/firestore");
+const firebaseConfig = require('./firebaseConfig');
+// Initialize Firebase
+const serviceAccount = path.resolve(__dirname, '../../permissions.json')
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://onthefuzehr-default-rtdb.firebaseio.com",
+  storageBucket: 'onthefuzehr.appspot.com'
+});
+//firebase.analytics();
+
+const db= admin.firestore();
+const bucket = admin.storage().bucket();
+
 const dbUsers = 'trabajadores';
 const dbDocs = 'documentos';
 
+
+
 const getUser = (id_card) => db.collection(dbUsers).where('numero_doc','==',id_card).get();
 
-const getDoc = (categoryFilter)=> db.collection(dbDocs).where('employee_id','==',user_id).where('categoria','==',categoryFilter).get();
+const getDoc = (cc_id,categoryFilter)=> db.collection(dbDocs).where('employee_id','==',cc_id).where('categoria','==',categoryFilter).get();
 
 const delDbDoc= (dcDoc) => db.collection("documentos").doc(dcDoc).delete();
 
 const createRegister = (value) => db.collection('trabajadores').add(value);
 
-async function set(file,user_id,doc_name){
+const createPDFregister = (value) => db.collection('pdfRegister').add(value);
+
+const editRegister = (value,id) => db.collection('trabajadores').doc(id).set(value,{merge: true})
+
+//const savePDF = (doc_name,file) =>firebase.storage().ref('entrevistas/'+doc_name).put(file);
+
+const savePDF = (doc_name) => bucket.file(doc_name);
+
+  /*
+
+ async function set(doc_name){
     
       const storageRef = firebase.storage().ref()
-      const filename = doc_name + '_' + categ_doc + '_' +  (new Date).toLocaleString()+'.pdf';
-      const fileRef = storageRef.child(filename.replace(/\s+/g, '').replace(/[/]/g,'-'));
+      const fileRef = storageRef.child(doc_name);
       
-      await fileRef.put(file)
       const fileURL = await  fileRef.getDownloadURL()
       const fileData = await fileRef.getMetadata()
 
-      var Docs = db.collection('documentos').doc();
+      var Docs = db.collection('entrevista').doc();
 
       var setWithMerge = Docs.set({
           doc_lik: fileURL,
-          categoria: categ_doc,
-          descripcion: doc_descrp.value,
-          employee_id: user_id,
-          nombre_doc: filename,
+          descripcion: 'Entrevista retiro',
           doc_path: fileData.fullPath
 
       }, { merge: true });
 
       console.log(fileURL)
-      //console.log(doc_path)
-} 
+      //console.log(doc_path) 
+}  
+
+*/
+
+
+
+/* // Get the download URL
+starsRef.getDownloadURL().then(function(url) {
+  // Insert url into an <img> tag to "download"
+}).catch(function(error) {
+
+  // A full list of error codes is available at
+  // https://firebase.google.com/docs/storage/web/handle-errors
+  switch (error.code) {
+    case 'storage/object-not-found':
+      // File doesn't exist
+      break;
+
+    case 'storage/unauthorized':
+      // User doesn't have permission to access the object
+      break;
+
+    case 'storage/canceled':
+      // User canceled the upload
+      break;
+
+    
+
+    case 'storage/unknown':
+      // Unknown error occurred, inspect the server response
+      break;
+  }
+}); */
 
 
 async function delDoc(doc_path,id){
@@ -58,10 +114,17 @@ async function delDoc(doc_path,id){
 } 
 
 
-async function pressDel(algo){
 
-   console.log('Boton borrar presionado' + algo)
-} 
+
+module.exports.getUser = getUser;
+module.exports.createRegister = createRegister;
+module.exports.editRegister = editRegister;
+module.exports.getDoc = getDoc;
+module.exports.savePDF = savePDF;
+module.exports.createPDFregister = createPDFregister;
+//module.exports = {
+//  set: set
+//}
 
 
 

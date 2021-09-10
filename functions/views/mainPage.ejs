@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OTF HR</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">   
+        <link rel="stylesheet" href="/css/mainPage.css">
+    </head>
+    <body>
+
+        <header >             
+            
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                <a class="navbar-brand" href="#"><img src="/images/otf.PNG" class="img-fluid" width="45px" height="45px" alt="Logo OnTheFuze"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Employees</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Add Registry
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/crear">Add an Employee</a></li>
+                        <li><a class="dropdown-item" href="/subirArchivo">Add a Document</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    
+                    </ul>
+                    <form action="/buscar" class="d-flex" method="get">
+                    <input class="form-control me-2" id="doc" name="doc" type="text" placeholder="Enter ID" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+                </div>
+            </nav>
+
+        </header>
+
+        <div class="container-fluid emp-profile noLRMar">
+
+                    
+                    <!-- SECCION CABECERA PERFIL  -->
+
+                    <div class="row d-flex justify-content-center" > 
+
+                        <!-- FOTO DE PERFIL-->
+
+                        <div class="col-12 col-lg-4 order-1 order-lg-0">
+                            <div class="profile-img">
+                                <img src="https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?cs=srgb&dl=pexels-helena-lopes-2253275.jpg&fm=jpg" alt=""/>
+                                <div class="file btn btn-lg btn-primary">
+                                    Change Photo
+                                    <input type="file" name="file"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NOMBRE, APPELLIDO, CARGO Y NAV LINKS ---- TAMAÑO 6-->
+
+                        <div class="col-12 col-lg-6 order-2 order-lg-1">
+                            <div class="profile-head">
+
+                                <h5 ><%= name %></h5>
+                                <h6><%= lastname %></h6>
+                                <h7><%= post %></h7>                            
+                                <p class="proile-rating">Status : <span>Active</span></p>
+
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Information</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Information +</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Documents</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Documents +</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- BOTON EDITAR PERFIL ----- TAMAÑO 2 -->
+
+                        <div class="col-12 col-lg-2 order-0 order-lg-2 mb-2">
+
+                            <form action="/editar?doc=<%=user_doc%>" class="d-flex">
+                                <button class="btn btn-outline-success" type="submit">Edit Profile</button>
+                            </form>
+                                                
+                        </div>
+
+                    </div> 
+
+                    <!-- FIN SECCION CABECERA PERFIL  -->
+
+
+
+
+                    <!-- SECCION INFORMACIÓN PERFIL -->
+
+                    <div class="row">
+
+                        <!-- INFORMACIÓN DEBAJO DE LA FOTO  ---- TAMAÑO 4-->
+
+                        <div class="col-12 col-lg-4 order-1 order-lg-0">
+                            <div class="profile-work">
+                                <p>WORK LINK</p>
+                                <a href="">Website Link</a><br/>
+                                <a href="">Bootsnipp Profile</a><br/>
+                                <a href="">Bootply Profile</a>
+                                <p>SKILLS</p>
+                                <a href="">Web Designer</a><br/>
+                                <a href="">Web Developer</a><br/>
+                                <a href="">WordPress</a><br/>
+                                <a href="">WooCommerce</a><br/>
+                                <a href="">PHP, .Net</a><br/>
+                            </div>
+                        </div>
+
+                        <!-- INFORMACIÓN DEL TABS -----TAMAÑO 8  -->
+
+                        <div class="col-12 col-lg-8">
+                            <div class="tab-content profile-tab" id="myTabContent">
+
+                                <!-- PRIMER TAB CORP INFO --> 
+                                <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>ID</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p>ODF123</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>Citizenship card
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><%= id %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>Corporate email</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><%= email_e %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>City</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><%= city %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>Profession</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p>Web Developer and Designer</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SEGUNDO TAB CORP INFO --> 
+                                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>Personal email</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><%= email_p %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>Phone number</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><%= phone %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>Vegetarian</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><%= vegetarian %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>Address</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><%= address %></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>Size</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p><%= size %></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- TERCER TAB DOCUMENTOS --> 
+                                <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Ingreso">Ingreso</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Hoja de vida">Hoja de vida</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Exámenes Médicos">Exámenes Médicos</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Recomendaciones Médicas">Recomendaciones Médicas</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=ARL">ARL</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=EPS">EPS</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=SST">SST</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Caja de Compensación">Caja de Compensación</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Incapacidades">Incapacidades</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Licencias">Licencias</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <!-- CUARTO TAB CORP INFO --> 
+                                <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Vacaciones">Vacaciones</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Comprobanted de pago">Comprobanted de pago</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="/archivo?doc=<%=user_doc%>&categoria=Otros">Otros</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="">Otros</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="">Otros</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="">Otros</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="">Otros</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="">Otros</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="">Otros</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="">Otros</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                
+        </div>
+
+        <footer>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <script src="./js/firebaseConfig.js"></script>
+        
+        
+    </body>
+</html>

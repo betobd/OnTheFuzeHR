@@ -11,29 +11,51 @@
 
     "redirects": [
       {
-        "source": "/createEmployee",
-        "destination": "createEmployee.html",
-        "type": 301
-      },
-      {
         "source": "/inicio",
         "destination": "mainpage.html",
         "type": 302
-      },
-      {
-        "source": "/editEmployee",
-        "destination": "editEmployee.html",
-        "type": 303
-      }
+      }  
     ],
 
     "rewrites": [
       {
-        "source": "/algo",
+        "source": "/tabla",
         "function": "app"
       },
       {
-        "source": "/edit",
+        "source": "/pagina",
+        "function": "app"
+      },
+      {
+        "source": "/",
+        "function": "app"
+      },
+      {
+        "source": "/buscar",
+        "function": "app"
+      },
+      {
+        "source": "/editar",
+        "function": "app"
+      },
+      {
+        "source": "/crear",
+        "function": "app"
+      },
+      {
+        "source": "/inicio",
+        "function": "app"
+      },
+      {
+        "source": "/subirArchivo",
+        "function": "app"
+      },
+      {
+        "source": "/archivo",
+        "function": "app"
+      },
+      {
+        "source": "/pdf",
         "function": "app"
       }
     ]

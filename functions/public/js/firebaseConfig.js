@@ -1,4 +1,6 @@
-var firebaseConfig = {
+//import firebase from "@firebase/app";
+
+const firebaseConfig = {
     apiKey: "AIzaSyAEHA-9C4dq-krVUDpF2gNfnp1AujYC2uI",
     authDomain: "onthefuzehr.firebaseapp.com",
     databaseURL: "https://onthefuzehr-default-rtdb.firebaseio.com",
@@ -8,6 +10,6 @@ var firebaseConfig = {
     appId: "1:333309219:web:da63eb25d9436902985896",
     measurementId: "G-FZPGEKD1EH"
   };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  //firebase.analytics();
+
+  module.exports.firebaseConfig = firebaseConfig;
+  

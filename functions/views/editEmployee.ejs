@@ -6,32 +6,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar--Registro</title>
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         
     </head>
     <body>
 
         <header>
-            <div class="logo_OTF">
-                <img src="./images/onthefuze_logo.png" alt="Logo On The Fuse">
-            </div>
-    
-            <nav >
-                <ul class="list-header">
-                    <li>
-                        <a href="https://www.onthefuze.com.au/">All Documents</a>
-                    </li>
-    
-                    <li>
-                        <a href="">All Employees</a>
-                    </li>
-                   
-                    <li>
-                        <a href="/inicio">Inicio</a>
-                    </li>
-                </ul>
-            </nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#"><img src="/images/otf.PNG" class="img-fluid" width="45px" height="45px" alt="Logo OnTheFuze"></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Employees</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Add Registry
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="/crear">Add an Employee</a></li>
+                          <li><a class="dropdown-item" href="/subirArchivo">Add a Document</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </li>
+                      
+                    </ul>
+                    <form action="/buscar" class="d-flex" method="get">
+                      <input class="form-control me-2" id="doc" name="doc" type="text" placeholder="Enter ID" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
         </header>
 
         <div class="container">
@@ -41,16 +56,16 @@
                 <fieldset>
                     
                     <!-- Form Name -->
-                    <legend><center><h2><b>Editar Registro</b></h2></center></legend><br>
+                    <legend><center><h2><b>Edit Registry</b></h2></center></legend><br>
                     
                     <!-- Text input-->
                     
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Nombre</label>  
+                        <label class="col-md-4 control-label">Name</label>  
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input  id="edit_fist-name_input" name="nombre" placeholder="Nombre" class="form-control"  type="text" required     value= "<%= titulo %>">
+                                <input  id="edit_fist-name_input" name="nombre" placeholder="" class="form-control"  type="text" required     value= "<%= name %>">
                             </div>
                         </div>
                     </div>
@@ -58,11 +73,11 @@
                     <!-- Text input-->
                     
                     <div class="form-group">
-                        <label class="col-md-4 control-label" >Apellido</label> 
+                        <label class="col-md-4 control-label" >Last name</label> 
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="edit_last-name_input" name="apellido" placeholder="Apellido" class="form-control"  type="text" required>
+                                <input id="edit_last-name_input" name="apellido" placeholder="" class="form-control"  type="text" required value="<%= lastname %>">
                             </div>
                         </div>
                     </div>
@@ -70,11 +85,11 @@
                     <!-- Text input-->
                     
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Ciudad</label>  
+                        <label class="col-md-4 control-label">City</label>  
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-                                <input  id="edit_city_input" name="ciudad" placeholder="Ciuidad" class="form-control"  type="text" required>
+                                <input  id="edit_city_input" name="ciudad" placeholder="" class="form-control"  type="text" required value="<%= city %>">
                             </div>
                         </div>
                     </div>
@@ -82,11 +97,11 @@
                     <!-- Text input-->
                     
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Cargo</label>  
+                        <label class="col-md-4 control-label">Post</label>  
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-knight"></i></span>
-                                <input  id="edit_post_input" name="cargo" placeholder="Cargo" class="form-control"  type="text" required>
+                                <input  id="edit_post_input" name="cargo" placeholder="" class="form-control"  type="text" required value="<%= post %>">
                             </div>
                         </div>
                     </div>
@@ -94,11 +109,11 @@
                     <!-- Text input-->
                     
                     <div class="form-group">
-                        <label class="col-md-4 control-label" >Dirección</label> 
+                        <label class="col-md-4 control-label" >Address</label> 
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="edit_address_input" name="direccion" placeholder="Dirección" class="form-control"  type="text">
+                                <input id="edit_address_input" name="direccion" placeholder="" class="form-control"  type="text" value="<%= address %>">
                             </div>
                         </div>
                     </div>
@@ -106,33 +121,33 @@
                     <!-- Text input-->
                     
                     <div class="form-group">
-                        <label class="col-md-4 control-label" >Cédula</label> 
+                        <label class="col-md-4 control-label" >Citizenship card</label> 
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
-                                <input id="edit_id_input" name="numero_doc" placeholder="Cédula" class="form-control"  type="text" required>
+                                <input id="edit_id_input" name="numero_doc" placeholder="" class="form-control"  type="text" required value="<%= id %>">
                             </div>
                         </div>
                     </div>
                     
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Correo Personal</label>  
+                        <label class="col-md-4 control-label">Personal email</label>  
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input id="edit_email-p_input" name="correo_pers" placeholder="Correo Personal" class="form-control"  type="text">
+                                <input id="edit_email-p_input" name="correo_pers" placeholder="" class="form-control"  type="text" value="<%= email_p %>">
                             </div>
                         </div>
                     </div>
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Correo Corporativo</label>  
+                        <label class="col-md-4 control-label">Corporate email</label>  
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input id="edit_email-c_input" name="correo_empr" placeholder="Correo Corporativo" class="form-control"  type="text">
+                                <input id="edit_email-c_input" name="correo_empr" placeholder="" class="form-control"  type="text" value="<%= email_e %>">
                             </div>
                         </div>
                     </div>
@@ -141,11 +156,11 @@
                     <!-- Text input-->
                         
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Teléfono.</label>  
+                        <label class="col-md-4 control-label">Phone number.</label>  
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input id="edit_phone_input" name="telefono" placeholder="Teléfono" class="form-control" type="text">
+                                <input id="edit_phone_input" name="telefono" placeholder="" class="form-control" type="text" value="<%= phone %>">
                             </div>
                         </div>
                     </div>
@@ -153,11 +168,11 @@
                      <!-- Text input-->
                         
                      <div class="form-group">
-                        <label class="col-md-4 control-label">Vegetariano.</label>  
+                        <label class="col-md-4 control-label">Vegetarian.</label>  
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-apple"></i></span>
-                                <input id="edit_vegan_input" name="vegetariano" placeholder="Vegetariano ?" class="form-control" type="text">
+                                <input id="edit_vegan_input" name="vegetarian" placeholder="" class="form-control" type="text" value="<%= vegetarian %>">
                             </div>
                         </div>
                     </div>
@@ -165,15 +180,16 @@
                     <!-- Text input-->
                         
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Talla Camisa.</label>  
+                        <label class="col-md-4 control-label">Size</label>  
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-text-size"></i></span>
-                                <input id="edit_size_input" name="talla_camisa" placeholder="Talla Camisa" class="form-control" type="text">
+                                <input id="edit_size_input" name="talla_camisa" placeholder="" class="form-control" type="text" value="<%= size %>">
                             </div>
                         </div>
                     </div>
-                    
+
+                                        
                     
                     <!-- Button -->
                     <div class="form-group">
@@ -189,8 +205,8 @@
             
         </div><!-- /.container -->
 
-    
-    
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
     </body>
 </html>
