@@ -55,7 +55,7 @@
         "function": "app"
       },
       {
-        "source": "/pdf",
+        "source": "/resignation",
         "function": "app"
       }
     ]
