@@ -1,3 +1,11 @@
+:root {
+    --blue: #001980;
+    --orange: #F66129;
+    --font_sm: 1rem;
+    --font_lg: 1.4rem;
+    
+  }
+
 *{
     margin: 0;
     padding: 0;
@@ -10,7 +18,7 @@
    }
 
 body{
-    background: -webkit-linear-gradient(left, #F66129, #001980);
+    background: -webkit-linear-gradient(left, #F66129, var(--blue));
     
     
 }
@@ -39,7 +47,7 @@ body{
     border: none;
     border-radius: 0;
     font-size: 15px;
-    background: #001980;
+    background: var(--blue);
 }
 .profile-img .file input {
     position: absolute;
@@ -47,13 +55,70 @@ body{
     right: 0;
     top: 0;
 }
+
+@media (min-width: 320px) { 
+    .profile-head h5,h6{        
+        font-size: 1.8rem;
+    }
+    .profile-head h7{        
+        font-size: 1.2rem;
+    }
+    .profile-head .nav-tabs .nav-link{
+        font-size: 1.2rem;        
+    }
+    .profile-work p{
+        font-size: var(--font_sm);        
+    }
+    .profile-work a{
+        font-size: var(--font_sm);
+    }
+    .profile-tab label{
+        font-size: var(--font_sm);        
+    }
+    .profile-tab p{
+        font-size: var(--font_sm);
+    }
+    
+    .profile-tab a{
+        font-size: var(--font_sm);
+    }
+ }
+
+ @media (min-width: 992px) { 
+    .profile-head h5,h6{        
+        font-size: 2rem;
+    }
+    .profile-head h7{        
+        font-size: 1.5rem;
+    }
+    .profile-head .nav-tabs .nav-link{
+        font-size: 1.6rem;        
+    }
+    .profile-work p{
+        font-size: var(--font_lg);        
+    }
+    .profile-work a{
+        font-size: var(--font_lg);
+    }
+    .profile-tab label{
+        font-size: var(--font_lg);        
+    }
+    .profile-tab p{
+        font-size: var(--font_lg);
+    }
+    
+    .profile-tab a{
+        font-size: var(--font_sm);
+    }
+  }
+
 .profile-head h5,h6{
-    color: #001980;
-    font-size: 2.5rem;
+    color: var(--blue);
+    /* font-size: 2.5rem; */
 }
 .profile-head h7{
-    color: #F66129;
-    font-size: 2rem;
+    color: var(--orange); 
+    /* font-size: 2rem; */
 }
 .profile-edit-btn{
     border: none;
@@ -66,11 +131,11 @@ body{
 }
 .proile-rating{
     font-size: 12px;
-    color: #F66129;
+    color: var(--orange);
     margin-top: 5%;
 }
 .proile-rating span{
-    color: #001980;
+    color: var(--blue);
     font-size: 15px;
     font-weight: 600;
 }
@@ -79,29 +144,29 @@ body{
 }
 .profile-head .nav-tabs .nav-link{
     font-weight:600;
-    color: #001980;
-    font-size: 1.3rem;
+    color: var(--blue);
+    /* font-size: 1.3rem; */
     border: none;
 }
 .profile-head .nav-tabs .nav-link.active{
     border: none;
-    border-bottom:2px solid #F66129;
+    border-bottom:2px solid var(--orange);
 }
 .profile-work{
     padding: 14%;
     margin-top: -15%;
 }
 .profile-work p{
-    font-size: 1.2rem;
-    color: #F66129;
+    /* font-size: 1.2rem; */
+    color: var(--orange);
     font-weight: 600;
     margin-top: 10%;
 }
 .profile-work a{
     text-decoration: none;
-    color: #001980;
+    color: var(--blue);
     font-weight: 600;
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
 }
 .profile-work ul{
     list-style: none;
@@ -110,24 +175,24 @@ body{
 
 .profile-tab label{
     font-weight: 600;
-    font-size: 1.2rem;
-    color: #001980;
+    /* font-size: 1.2rem; */
+    color: var(--blue);
 }
 .profile-tab p{
     font-weight: 600;
-    font-size: 1..2rem;
-    color: #F66129;
+    /* font-size: 1..2rem; */
+    color: var(--orange);
 }
 
 .profile-tab a{
     text-decoration: none;
-    color: #001980;
+    color: var(--blue);
     font-weight: 600;
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
 }
 
 .profile-tab a:hover{
-    color: #F66129;
+    color: var(--orange);
     font-weight: 600;
     
 }

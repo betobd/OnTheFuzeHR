@@ -1,5 +1,3 @@
-//import firebase from "@firebase/app";
-
 const firebaseConfig = {
     apiKey: "AIzaSyAEHA-9C4dq-krVUDpF2gNfnp1AujYC2uI",
     authDomain: "onthefuzehr.firebaseapp.com",

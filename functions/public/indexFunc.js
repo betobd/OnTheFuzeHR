@@ -4,36 +4,8 @@ const user_data = require("./js/store.js");
 const PDF = require('pdfkit');
 const { async } = require("@firebase/app/node_modules/@firebase/util");
 
-const fonts = {
-  Courier: {
-    normal: 'Courier',
-    bold: 'Courier-Bold',
-    italics: 'Courier-Oblique',
-    bolditalics: 'Courier-BoldOblique'
-  },
-  Helvetica: {
-    normal: 'Helvetica',
-    bold: 'Helvetica-Bold',
-    italics: 'Helvetica-Oblique',
-    bolditalics: 'Helvetica-BoldOblique'
-  },
-  Times: {
-    normal: 'Times-Roman',
-    bold: 'Times-Bold',
-    italics: 'Times-Italic',
-    bolditalics: 'Times-BoldItalic'
-  },
-  Symbol: {
-    normal: 'Symbol'
-  },
-  ZapfDingbats: {
-    normal: 'ZapfDingbats'
-  }
-};
 
 const app = express();
-
-
 
 /* TEMPLATE ENGINE UTILIZADO EJS */
 
@@ -261,20 +233,43 @@ var info = {
 
   app.post('/resignation', async(request,response) =>{
 
-    const resignation_info = {
-      name:         request.body.name,
-      lastname:     request.body.lastname,
-      city:         request.body.city,
-      address:      request.body.address,
-      post:         request.body.post,
-      email:        request.body.email,
-      phone:        request.body.phone,
-      start_date:   request.body.start_date,
-      end_date:     request.body.end_date,
-      select_motif: request.body.select_motif,
-      comments:     request.body.comments,
-      id:           request.body.id
-    }
+    
+      var resignation_info = {
+        name:         request.body.name,
+        lastname:     request.body.lastname,
+        city:         request.body.city,
+        address:      request.body.address,
+        post:         request.body.post,
+        email:        request.body.email,
+        phone:        request.body.phone,
+        start_date:   request.body.start_date,
+        end_date:     request.body.end_date,
+        select_motif: request.body.select_motif,
+        comments:     request.body.comments,
+        id:           request.body.id      
+      }
+
+      if(!(request.body.empresa == undefined)){
+        resignation_info = {
+          name:         request.body.name,
+          lastname:     request.body.lastname,
+          city:         request.body.city,
+          address:      request.body.address,
+          post:         request.body.post,
+          email:        request.body.email,
+          phone:        request.body.phone,
+          start_date:   request.body.start_date,
+          end_date:     request.body.end_date,
+          select_motif: request.body.select_motif,
+          comments:     request.body.comments,
+          id:           request.body.id,
+          new_company:  request.body.empresa,
+          new_salary:   request.body.salario,
+          new_post:     request.body.cargo      
+        }
+      }
+    
+    
     switch(request.body.select_motif){
 
       case '1':
@@ -336,6 +331,22 @@ exports.firestoretoPdf = functions.firestore.document('/retiros/{documentId}').o
     const myPDFfile = user_data.savePDF(filename);
     doc.pipe(myPDFfile.createWriteStream());
 
+    const maxWidth = 140;
+    const maxHeight = 70;
+    const startX = 80;
+    const startY= 200;
+    const xPlus = 100;
+    const yPlus = 30;
+    
+    doc.image(
+      './images/otf.PNG',
+    doc.page.width / 2 - maxWidth / 2,60, 
+    {
+      fit: [maxWidth, maxHeight],
+      align: 'center',
+   }
+);
+    
     doc.fontSize(25).text('Entrevista de retiro',{
       align: 'center'
     });
@@ -343,13 +354,43 @@ exports.firestoretoPdf = functions.firestore.document('/retiros/{documentId}').o
       align: 'center'
     });
 
-    doc.fontSize(14).text(`Nombre - ${snap.data().name}`, 80, 200);
-    doc.fontSize(14).text(`Cargo - ${snap.data().post}`, 80, 230);
-    doc.fontSize(14).text(`Fecha de Ingreso - ${snap.data().start_date}`, 80, 260);
-    doc.fontSize(14).text(`Fecha de retiro - ${snap.data().end_date}`, 80, 290);
-    doc.fontSize(14).text(`Correo - ${snap.data().email}`, 80, 320);
-    doc.fontSize(14).text(`Ciudad - ${snap.data().city}`, 80, 350);
-    doc.fontSize(14).text(`Comentarios - ${snap.data().comments}`, 80, 380);
+    doc.fontSize(14).text(`Nombre:`,             startX,         200);
+    doc.fontSize(12).text(`${snap.data().name}`, startX + xPlus, 200);
+
+
+    doc.fontSize(14).text(`Cargo:`,             startX,         230);
+    doc.fontSize(12).text(`${snap.data().post}`,startX + xPlus, 230);
+
+
+    doc.fontSize(14).text(`Fecha de Ingreso:`,         startX,         260);
+    doc.fontSize(14).text(`${snap.data().start_date}`, startX + xPlus, 260);
+
+
+    doc.fontSize(14).text(`Fecha de retiro:`,         startX,        290);
+    doc.fontSize(14).text(`${snap.data().end_date}`, startX + xPlus, 290);
+
+
+    doc.fontSize(14).text(`Correo:`,              startX,         320);
+    doc.fontSize(14).text(`${snap.data().email}`, startX + xPlus, 320);
+
+
+    doc.fontSize(14).text(`Ciudad:`,             startX,         350);
+    doc.fontSize(14).text(`${snap.data().city}`, startX + xPlus, 350);
+
+
+    doc.fontSize(14).text(`Comentarios:`, 80, 380);
+    doc.moveDown();
+    //doc.fontSize(14).text(`${snap.data().comments}`, 90, 410);
+
+    doc.text(`${snap.data().comments}`, {
+      width: 410,
+      align: 'justify'
+    }
+    );
+
+    //doc.rect(doc.x, 10, 410, doc.y).stroke();
+    
+
 
     doc.end();
 

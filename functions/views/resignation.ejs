@@ -13,40 +13,7 @@
     <body>
 
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#"><img src="/images/otf.PNG" class="img-fluid" width="45px" height="45px" alt="Logo OnTheFuze"></a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Employees</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Add Registry
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="/crear">Add an Employee</a></li>
-                          <li><a class="dropdown-item" href="/subirArchivo">Add a Document</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                      </li>
-                      
-                    </ul>
-                    <form action="/buscar" class="d-flex" method="get">
-                      <input class="form-control me-2" id="doc" name="doc" type="text" placeholder="Enter ID" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                  </div>
-                </div>
-              </nav>
+          <%- include('../views/templates/nav') %>
         </header>
 
         <div class="container">
@@ -108,7 +75,7 @@
                
                 <div class="col-12" id="resignation_options">
                   <label for="sel_motif" class="form-label">Motivo de retiro</label>
-                  <select id="sel_motif" name="select_motif" class="form-select" aria-label="Default select example">
+                  <select id="sel_motif" name="select_motif" class="form-select" onchange="selected_motif()" aria-label="Default select example">
                     <option selected>Seleccionar motivo</option>
                     <option value="1">Oferta laboral</option>
                     <option value="2">Cuidado de familiar</option>
@@ -121,6 +88,8 @@
                     <option value="9">Otro</option>
                   </select>
                 </div>
+
+                <div id="new_company_options"></div>
                 
                 <div class="col-12">
                   <label for="emp_comments" class="form-label">Comentarios</label>

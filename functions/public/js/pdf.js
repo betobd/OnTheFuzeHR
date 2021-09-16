@@ -1,86 +1,81 @@
 var addmore = document.getElementById('add_more_fields');
-var reg_options = document.getElementById('resignation_options');
+var reg_options = document.getElementById('resignation_options'); 
+var new_company_options = document.getElementById('new_company_options'); 
 var sel_motif = document.getElementById('sel_motif');
+var divEmpresa = document.createElement('div');
+var divSalario = document.createElement('div');
+var divCargo = document.createElement('div');
 
 var motif='';
 
-addmore.onclick = function(){
-    var divEmpresa = document.createElement('div');
-        var labelEmpresa= document.createElement('label')
-        var inputEmpresa= document.createElement('input')
-    
-    
-        divEmpresa.setAttribute('class','col-6');
-        labelEmpresa.setAttribute('class','form-label');
-        labelEmpresa.innerHTML="Empresa"
-        inputEmpresa.setAttribute('class','form-control');
-        inputEmpresa.setAttribute('type','text');
 
-        
-        reg_options.appendChild(divEmpresa);
-        divEmpresa.appendChild(labelEmpresa);
-        labelEmpresa.appendChild(inputEmpresa);
-
-}
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
 
 function selected_motif(){
     motif = sel_motif.options[sel_motif.selectedIndex].text;
-    if(motif=='Estudios'){
+    if(motif=='Oferta laboral'){
 
         /* EMPRESA */
         
         var divEmpresa = document.createElement('div');
         divEmpresa.setAttribute('class','col-md-4 mt-3');
+        new_company_options.appendChild(divEmpresa)
 
-        var labelEmpresa= document.createElement('label')
+        var labelEmpresa= document.createElement('label');
         labelEmpresa.setAttribute('class','form-label');
         labelEmpresa.innerHTML="Empresa"
+        divEmpresa.appendChild(labelEmpresa);
 
         var inputEmpresa= document.createElement('input'); 
         inputEmpresa.setAttribute('class','form-control');
         inputEmpresa.setAttribute('type','text');
+        inputEmpresa.setAttribute('name','empresa');
+        insertAfter(labelEmpresa,inputEmpresa);
 
-        
-        reg_options.appendChild(divEmpresa);
-        divEmpresa.appendChild(labelEmpresa);
-        labelEmpresa.appendChild(inputEmpresa);
-
+                
         /* SALARIO */
         
         var divSalario = document.createElement('div');
         divSalario.setAttribute('class','col-md-4 mt-3');
+        insertAfter(divEmpresa,divSalario);
 
-        var labelSalario= document.createElement('label')
+        var labelSalario= document.createElement('label');
         labelSalario.setAttribute('class','form-label');
-        labelSalario.innerHTML="Salario"
+        labelSalario.innerHTML="Salario";
+        divSalario.appendChild(labelSalario);
 
         var inputSalario= document.createElement('input'); 
         inputSalario.setAttribute('class','form-control');
         inputSalario.setAttribute('type','text');
+        inputSalario.setAttribute('name','salario');
+        insertAfter(labelSalario,inputSalario);
 
-        
-        divEmpresa.appendChild(divSalario);
-        divSalario.appendChild(labelSalario);
-        labelSalario.appendChild(inputSalario);
+               
 
 
         /* CARGO */
         
         var divCargo = document.createElement('div');
         divCargo.setAttribute('class','col-md-4 mt-3');
+        insertAfter(divSalario,divCargo);
 
         var labelCargo= document.createElement('label')
         labelCargo.setAttribute('class','form-label');
         labelCargo.innerHTML="Cargo"
+        divCargo.appendChild(labelCargo);
 
-        var inputSalario= document.createElement('input'); 
-        inputSalario.setAttribute('class','form-control');
-        inputSalario.setAttribute('type','text');
+        var inputCargo= document.createElement('input'); 
+        inputCargo.setAttribute('class','form-control');
+        inputCargo.setAttribute('type','text');
+        inputCargo.setAttribute('name','cargo');
+        insertAfter(labelCargo,inputCargo);
+        
 
         
-        divEmpresa.appendChild(divCargo);
-        divCargo.appendChild(labelCargo);
-        labelCargo.appendChild(inputSalario);
+    }else{
+        new_company_options.innerHTML='';
     }
 }
 

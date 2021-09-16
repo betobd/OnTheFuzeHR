@@ -19,8 +19,6 @@ const bucket = admin.storage().bucket();
 
 const dbUsers = 'trabajadores';
 const dbDocs = 'documentos';
-//const storage1 = new Storage();
-
 
 
 const getUser = (id_card) => db.collection(dbUsers).where('numero_doc','==',id_card).get();
@@ -29,46 +27,31 @@ const getDoc = (cc_id,categoryFilter)=> db.collection(dbDocs).where('employee_id
 
 const getResDoc = (path)=> db.collection(dbDocs).where('doc_path','==',path).get();
 
-const delDbDoc= (dcDoc) => db.collection("documentos").doc(dcDoc).delete();
+const delDbDoc= (dcDoc) => db.collection(dbDocs).doc(dcDoc).delete();
 
-const createRegister = (value) => db.collection('trabajadores').add(value);
+const createRegister = (value) => db.collection(dbUsers).add(value);
 
-const editRegister = (value,id) => db.collection('trabajadores').doc(id).set(value,{merge: true});
+const editRegister = (value,id) => db.collection(dbUsers).doc(id).set(value,{merge: true});
 
-const createPDFregister = (value) => db.collection('documentos').add(value);
+const createPDFregister = (value) => db.collection(dbDocs).add(value);
 
 const createOther = (value) => db.collection('otro').add(value);
 
-const updatePDFregister = (value,id) => db.collection('documentos').doc(id).update(value);
-
+const updatePDFregister = (value,id) => db.collection(dbDocs).doc(id).update(value);
 
 const createResignationRegister = (value) =>db.collection('retiros').add(value);
 
 const savePDF = (doc_name) => bucket.file(doc_name);  
 
 const pdfPublic = () => {
-    //storage1.bucket('onthefuzehr.appspot.com').makePublic();
     admin.storage().bucket('onthefuzehr.appspot.com').makePublic();  
 }
 
 const getURL = (file) => {
-  //storage1.bucket('onthefuzehr.appspot.com').makePublic();
   const storageRef = firebase.storage().ref()
   const fileRef = storageRef.child(file);
   return fileRef.getDownloadURL()  
-}
-  
-
-/* const setFile = (doc_name) =>{
-  
-  const storageRef = firebase.storage().ref();
-  const fileRef = storageRef.child('entrevista/7nfy46zCXHJfK3pIfsoe/SISISISISIS_creado.pdf');
-  createPDFregister({test: doc_name});  
-  createPDFregister({test: 'OTRALINEADEFUNCION'}); 
-      
-  
-}   */
-
+}  
 
 async function delDoc(doc_path,id){
 
@@ -90,8 +73,31 @@ async function delDoc(doc_path,id){
 
 } 
 
+async function setF(file,user_id,doc_name,category,description){
+    
+  const storageRef = firebase.storage().ref()
+  const filename = doc_name + '_' + category + '_' +  (new Date).toLocaleString()+'pdf';
+  const fileRef = storageRef.child(doc_name +'/'+filename.replace(/\s+/g, '').replace(/[/]/g,'-'));
+  
+  await fileRef.put(file)
+  const fileURL = await  fileRef.getDownloadURL()
+  const fileData = await fileRef.getMetadata()
 
+  var Docs = db.collection('documentos').doc();
 
+  var setWithMerge = Docs.set({
+      doc_lik: fileURL,
+      categoria: category,
+      descripcion: description,
+      employee_id: user_id,
+      nombre_doc: filename,
+      doc_path: fileData.fullPath
+
+  }, { merge: true });
+
+  console.log(fileURL)
+  //console.log(doc_path)
+} 
 
 module.exports.getUser = getUser;
 module.exports.createRegister = createRegister;

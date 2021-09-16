@@ -1,4 +1,6 @@
-const firebaseConfig = {
+const firebaseConfig = require('./firebaseConfig');
+
+/* const firebaseConfig = {
     apiKey: "AIzaSyAEHA-9C4dq-krVUDpF2gNfnp1AujYC2uI",
     authDomain: "onthefuzehr.firebaseapp.com",
     databaseURL: "https://onthefuzehr-default-rtdb.firebaseio.com",
@@ -7,9 +9,9 @@ const firebaseConfig = {
     messagingSenderId: "333309219",
     appId: "1:333309219:web:da63eb25d9436902985896",
     measurementId: "G-FZPGEKD1EH"
-  };
+  }; */
 
-  firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig.firebaseConfig);
 
 const db= firebase.firestore();
 const upload_file_button = document.getElementById("select_file_button");
@@ -18,10 +20,6 @@ const category_selected = document.getElementById("category_selected");
 const employee_id_doc = document.getElementById("employee_id_doc");
 const employee_name = document.getElementById("employee_name");
 var doc_category = '';
-
-
-
-alert('si');
 
 
 async function setF(file,user_id,doc_name,category,description){
