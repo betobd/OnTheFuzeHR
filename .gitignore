@@ -69,7 +69,6 @@ node_modules/
 /functions/public/js/firebaseConfig.js
 
 # Permissions JSON  Firebase
-functions/permissions.json
-/functions/public/js/git.js
+/functions/permissions.json
 
-test.js
+
